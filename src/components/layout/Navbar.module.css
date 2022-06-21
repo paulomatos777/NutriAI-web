@@ -3,7 +3,8 @@
   justify-content: space-between;
   background-color: #5e17eb;
   padding: 1em;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 100%;
 }
 
 .list {
@@ -22,10 +23,11 @@
 
 .item a:hover {
   color: rgb(0, 131, 218);
+  text-decoration: none;
 }
 
 img {
-  width: 100px;
+  width: 270px;
   border-right: 1px solid #2ae0cd;
   padding-right: 0.5rem;
 }

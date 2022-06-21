@@ -5,7 +5,7 @@ import logo from "../../img/logo.svg";
 
 function Navbar() {
   return (
-    <nav className={styles.navbar}>
+    <div className={styles.navbar}>
       <Container>
         <Link to="/">
           <div className={styles.logoWrapper}>
@@ -18,6 +18,9 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li className={styles.item}>
+            <Link to="/projects">Projects</Link>
+          </li>
+          <li className={styles.item}>
             <Link to="/contact">Contact</Link>
           </li>
           <li className={styles.item}>
@@ -25,7 +28,7 @@ function Navbar() {
           </li>
         </ul>
       </Container>
-    </nav>
+    </div>
   );
 }
 export default Navbar;
