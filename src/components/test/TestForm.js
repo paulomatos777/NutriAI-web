@@ -1,26 +1,24 @@
 import Input from "../form/Input";
+import Select from "../form/Select";
+import SubmitButton from "../form/SubmitButton";
 import styles from "./TestForm.module.css";
 
-function TestForm() {
+function TestForm({ btnText }) {
   return (
     <form className={styles.form}>
       <Input
         type="text"
-        text=" Nome do Teste"
+        text="Nome do Teste"
         placeholder="Insira o nome do Teste"
       />
       <div>
-        <select name="enviroment_id">
-          <option disabled selected>
-            Selecione o ambiente de Teste
-          </option>
-        </select>
+        <Input type="text" text="Descrição do Teste" placeholder="Descrição" />
       </div>
       <div>
-        <input type="text" placeholder="Descrição do Teste" />
+        <Select name="envirement_id" text="Selecione o Ambiente" />
       </div>
       <div>
-        <input type="submit" value="Criar Teste" />
+        <SubmitButton text={btnText} />
       </div>
     </form>
   );

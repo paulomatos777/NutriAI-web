@@ -6,7 +6,7 @@ function NewTask() {
     <div className={styles.newtask_container}>
       <h1>Criar Teste</h1>
       <p>Crie seu Teste para depois adicionar a Lista </p>
-      <TestForm />
+      <TestForm btnText="Criar teste" />
     </div>
   );
 }
