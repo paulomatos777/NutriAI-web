@@ -10,7 +10,9 @@ function Navbar() {
         <Link to="/">
           <div className={styles.logoWrapper}>
             <img src={logo} alt="Exmed Testes Logo" className={styles.img} />
-            <span className={styles.test}>Testes</span>
+            <span className={styles.test}>
+              <h3>Testes</h3>
+            </span>
           </div>
         </Link>
         <ul className={styles.list}>
@@ -18,13 +20,7 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li className={styles.item}>
-            <Link to="/test">Testes</Link>
-          </li>
-          <li className={styles.item}>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className={styles.item}>
-            <Link to="/company">Company</Link>
+            <Link to="/testes">Testes</Link>
           </li>
         </ul>
       </Container>

@@ -1,7 +1,7 @@
-.container {
+/* .container {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   flex-wrap: wrap;
 }
@@ -17,4 +17,25 @@
 .column {
   flex-direction: column;
   justify-content: flex-start;
+} */
+
+.container {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.column {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.min-height {
+  min-height: 75%;
 }
