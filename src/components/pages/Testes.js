@@ -5,9 +5,11 @@ import Container from "../layout/Container";
 import LinkButton from "../layout/LinkButton";
 import TestCard from "../test/TestCard";
 import { useState, useEffect } from "react";
+import Loading from "../layout/Loading";
 
 function Testes() {
   const [testes, setTestes] = useState([]);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
   const location = useLocation();
   let message = "";
@@ -16,18 +18,21 @@ function Testes() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/testes", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        setTestes(data);
+    setTimeout(() => {
+      fetch("http://localhost:5000/testes", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
       })
-      .catch((err) => console.log(err));
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          setTestes(data);
+          setRemoveLoading(true);
+        })
+        .catch((err) => console.log(err));
+    }, 300);
   }, []);
 
   return (
@@ -52,6 +57,10 @@ function Testes() {
               key={teste.id}
             />
           ))}
+        {!removeLoading && <Loading />}
+        {removeLoading && testes.length === 0 && (
+          <p>Não há projetos cadastrados</p>
+        )}
       </Container>
     </div>
   );

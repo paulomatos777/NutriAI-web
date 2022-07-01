@@ -71,6 +71,15 @@
         "name": "Staging"
       },
       "id": 8
+    },
+    {
+      "name": "Requisição Medica",
+      "description": "bug na busca",
+      "category": {
+        "id": "2",
+        "name": "Staging"
+      },
+      "id": 9
     }
   ],
   "categories": [
