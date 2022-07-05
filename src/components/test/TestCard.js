@@ -2,6 +2,10 @@ import styles from "./TestCard.module.css";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 function TestCard({ id, name, description, category, handleRemove }) {
+  const remove = (e) => {
+    e.preventDefault();
+    handleRemove(id);
+  };
   return (
     <div className={styles.test_card}>
       <h4>{name}</h4>
@@ -18,7 +22,7 @@ function TestCard({ id, name, description, category, handleRemove }) {
           <BsFillPencilFill />
           Editar
         </Link>
-        <button>
+        <button onClick={remove}>
           <BsFillTrashFill />
           Remover
         </button>

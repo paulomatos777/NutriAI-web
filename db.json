@@ -17,69 +17,6 @@
         "name": "Development"
       },
       "id": 2
-    },
-    {
-      "name": "paulo matos",
-      "description": "19 anos",
-      "category": {
-        "id": "1",
-        "name": "Development"
-      },
-      "id": 3
-    },
-    {
-      "name": "Bug Requisição Medica",
-      "description": "ao clicar em touchbar voce sente que a perna esquerda est6a desreguladada e aqui serve para verificar tamanho apos voce clicar em ok",
-      "category": {
-        "id": "3",
-        "name": "Production"
-      },
-      "id": 4
-    },
-    {
-      "name": "hbfviusbv",
-      "description": "gaedhgeh",
-      "category": {
-        "id": "3",
-        "name": "Production"
-      },
-      "id": 5
-    },
-    {
-      "name": "rthshert",
-      "description": "erhreth",
-      "category": {
-        "id": "1",
-        "name": "Development"
-      },
-      "id": 6
-    },
-    {
-      "name": "requisição medica",
-      "description": "bug na busca",
-      "category": {
-        "id": "2",
-        "name": "Staging"
-      },
-      "id": 7
-    },
-    {
-      "name": "bug requisição  medica",
-      "description": "ao clicar em touchbar voce sente que a perna esquerda est6a desreguladada e aqui serve para verificar tamanho apos voce clicar em ok",
-      "category": {
-        "id": "2",
-        "name": "Staging"
-      },
-      "id": 8
-    },
-    {
-      "name": "Requisição Medica",
-      "description": "bug na busca",
-      "category": {
-        "id": "2",
-        "name": "Staging"
-      },
-      "id": 9
     }
   ],
   "categories": [

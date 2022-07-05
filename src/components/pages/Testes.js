@@ -10,6 +10,7 @@ import Loading from "../layout/Loading";
 function Testes() {
   const [testes, setTestes] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
+  const [testMessage, setTestMessage] = useState("");
 
   const location = useLocation();
   let message = "";
@@ -35,6 +36,21 @@ function Testes() {
     }, 300);
   }, []);
 
+  function removeTest(id) {
+    fetch(`http://localhost:5000/testes/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then(() => {
+        setTestes(testes.filter((item) => item.id !== id));
+        setTestMessage("Teste Removido com sucesso");
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div className={styles.test_container}>
       <div className={styles.title_container}>
@@ -46,6 +62,7 @@ function Testes() {
         </div>
       </div>
       {message && <Message type="sucess" msg={message} />}
+      {testMessage && <Message type="sucess" msg={testMessage} />}
       <Container customClass="start">
         {testes.length > 0 &&
           testes.map((teste) => (
@@ -55,6 +72,7 @@ function Testes() {
               description={teste.description}
               category={teste.category.name}
               key={teste.id}
+              handleRemove={removeTest}
             />
           ))}
         {!removeLoading && <Loading />}
