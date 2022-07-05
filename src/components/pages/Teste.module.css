@@ -1,0 +1,48 @@
+.teste_details {
+  padding: 2em;
+}
+
+.teste_details h1,
+.teste_details h2,
+.teste_details p {
+  margin-bottom: 0.5em;
+}
+
+.teste_details h1 {
+  background-color: #5e17eb;
+  color: #fff;
+  padding: 0.4em;
+}
+
+.teste_details span {
+  font-weight: bold;
+}
+
+.details_container,
+.service_form-container {
+  border-bottom: 1px solid #7a7a7a;
+  margin-bottom: 1.2em;
+  padding-bottom: 1.2em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #5e17eb;
+  color: #fff;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  cursor: pointer;
+  max-height: 40px;
+  border: none;
+}
+
+.btn:hover {
+  color: rgb(0, 87, 187);
+}
+
+.teste_info {
+  width: 100%;
+}

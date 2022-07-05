@@ -17,7 +17,7 @@ function TestCard({ id, name, description, category, handleRemove }) {
         <span className={`${styles[category.toLowerCase()]}`}></span> {category}
       </p>
       <div className={styles.test_card_actions}>
-        <Link to="/">
+        <Link to={`/teste/${id}`}>
           {" "}
           <BsFillPencilFill />
           Editar
