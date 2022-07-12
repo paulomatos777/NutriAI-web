@@ -6,6 +6,7 @@ import styles from "./TestForm.module.css";
 
 function TestForm({ btnText, handleSubmit, testData }) {
   const [categories, setCategories] = useState([]);
+  const [states, setStates] = useState([]);
   const [test, setTest] = useState(testData || {});
 
   useEffect(() => {
@@ -18,6 +19,20 @@ function TestForm({ btnText, handleSubmit, testData }) {
       .then((resp) => resp.json())
       .then((data) => {
         setCategories(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/state", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setStates(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -36,6 +51,16 @@ function TestForm({ btnText, handleSubmit, testData }) {
     setTest({
       ...test,
       category: {
+        id: e.target.value,
+        name: e.target.options[e.target.selectedIndex].text,
+      },
+    });
+  }
+
+  function handleState(e) {
+    setTest({
+      ...test,
+      state: {
         id: e.target.value,
         name: e.target.options[e.target.selectedIndex].text,
       },
@@ -69,6 +94,15 @@ function TestForm({ btnText, handleSubmit, testData }) {
           options={categories}
           handleOnChange={handleCategory}
           value={test.category ? test.category.id : ""}
+        />
+      </div>
+      <div>
+        <Select
+          name="status_id"
+          text="Selecione o Status"
+          options={states}
+          handleOnChange={handleState}
+          value={test.state ? test.state.id : ""}
         />
       </div>
       <div>

@@ -1,7 +1,7 @@
 import styles from "./TestCard.module.css";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-function TestCard({ id, name, description, category, handleRemove }) {
+function TestCard({ id, name, description, category, state, handleRemove }) {
   const remove = (e) => {
     e.preventDefault();
     handleRemove(id);
@@ -16,6 +16,9 @@ function TestCard({ id, name, description, category, handleRemove }) {
       <p className={styles.category_text}>
         <span className={`${styles[category.toLowerCase()]}`}></span> {category}
       </p>
+      {/* <p className={styles.state_text}>
+        <span className={`${styles[state.toLowerCase()]}`}></span> {state}
+      </p> */}
       <div className={styles.test_card_actions}>
         <Link to={`/teste/${id}`}>
           {" "}

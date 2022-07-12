@@ -71,6 +71,7 @@ function Testes() {
               name={teste.name}
               description={teste.description}
               category={teste.category.name}
+              // state={teste.state.name}
               key={teste.id}
               handleRemove={removeTest}
             />

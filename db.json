@@ -10,13 +10,30 @@
       "id": 1
     },
     {
-      "name": "andre de paula",
-      "description": "19 anos",
+      "state": {
+        "id": "1",
+        "name": "funcionando"
+      },
+      "name": "PAULO F A M FILHO",
+      "description": "strtyhaeyh",
       "category": {
         "id": "1",
         "name": "Development"
       },
       "id": 2
+    },
+    {
+      "name": "PAULO F A M FILHO",
+      "description": "strtyhaeyh",
+      "category": {
+        "id": "2",
+        "name": "Staging"
+      },
+      "state": {
+        "id": "2",
+        "name": "Erro"
+      },
+      "id": 3
     }
   ],
   "categories": [
@@ -31,6 +48,16 @@
     {
       "id": 3,
       "name": "Production"
+    }
+  ],
+  "state": [
+    {
+      "id": 1,
+      "name": "Funcionando"
+    },
+    {
+      "id": 2,
+      "name": "Erro"
     }
   ]
 }
