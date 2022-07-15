@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import TestForm from "../test/TestForm";
 import styles from "./NewTask.module.css";
 
 function NewTask() {
+  const navigate = useNavigate();
   function handleSubmit(test, e) {
     e.preventDefault();
     api.post("/testes", {
@@ -12,6 +14,7 @@ function NewTask() {
       test_status: test.state.name,
       test_environment: test.category.name,
     });
+    navigate("/testes");
   }
 
   return (
