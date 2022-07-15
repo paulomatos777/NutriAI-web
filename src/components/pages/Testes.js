@@ -6,6 +6,7 @@ import LinkButton from "../layout/LinkButton";
 import TestCard from "../test/TestCard";
 import { useState, useEffect } from "react";
 import Loading from "../layout/Loading";
+import { api } from "../../services/api";
 
 function Testes() {
   const [testes, setTestes] = useState([]);
@@ -20,19 +21,16 @@ function Testes() {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/testes", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      })
-        .then((resp) => resp.json())
-        .then((data) => {
-          console.log(data);
-          setTestes(data);
+      api
+        .get("/testes")
+        .then((response) => {
+          console.log(response);
+          setTestes(response.data);
           setRemoveLoading(true);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.error("ops! ocorreu um erro : " + err);
+        });
     }, 300);
   }, []);
 
@@ -68,9 +66,9 @@ function Testes() {
           testes.map((teste) => (
             <TestCard
               id={teste.id}
-              name={teste.name}
-              description={teste.description}
-              category={teste.category.name}
+              name={teste.test_title}
+              description={teste.test_description}
+              category={teste.test_environment}
               // state={teste.state.name}
               key={teste.id}
               handleRemove={removeTest}

@@ -4,50 +4,41 @@ import Select from "../form/Select";
 import SubmitButton from "../form/SubmitButton";
 import styles from "./TestForm.module.css";
 
-function TestForm({ btnText, handleSubmit, testData }) {
-  const [categories, setCategories] = useState([]);
-  const [states, setStates] = useState([]);
+function TestForm({ handleSubmit, btnText, testData }) {
   const [test, setTest] = useState(testData || {});
 
-  useEffect(() => {
-    fetch("http://localhost:5000/categories", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setCategories(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const categories = [
+    {
+      key: "staging",
+      value: "staging",
+    },
+    {
+      key: "development",
+      value: "development",
+    },
+    {
+      key: "production",
+      value: "production",
+    },
+  ];
 
-  useEffect(() => {
-    fetch("http://localhost:5000/state", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setStates(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  const submit = (e) => {
-    e.preventDefault(); //previne page reload
-    // console.log(test);
-    handleSubmit(test);
-  };
+  const states = [
+    {
+      key: "working",
+      value: "working",
+    },
+    {
+      key: "error",
+      value: "error",
+    },
+  ];
 
   function handleChange(e) {
     setTest({ ...test, [e.target.name]: e.target.value });
   }
 
   function handleCategory(e) {
+    console.log(e);
     setTest({
       ...test,
       category: {
@@ -68,7 +59,7 @@ function TestForm({ btnText, handleSubmit, testData }) {
   }
 
   return (
-    <form onSubmit={submit} className={styles.form}>
+    <form onSubmit={(e) => handleSubmit(test, e)} className={styles.form}>
       <Input
         type="text"
         text="Nome do Teste"
@@ -93,7 +84,7 @@ function TestForm({ btnText, handleSubmit, testData }) {
           text="Selecione o Ambiente"
           options={categories}
           handleOnChange={handleCategory}
-          value={test.category ? test.category.id : ""}
+          value={test.category ? test.category.name : ""}
         />
       </div>
       <div>

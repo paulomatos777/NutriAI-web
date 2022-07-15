@@ -5,10 +5,12 @@ import Loading from "../layout/Loading";
 import Container from "../layout/Container";
 import TestForm from "../test/TestForm";
 import Message from "../layout/Message";
+import { api } from "../../services/api";
 
 function Teste() {
   const { id } = useParams();
 
+  console.log(id);
   const [teste, setTeste] = useState([]);
   const [showTesteForm, setShowTesteForm] = useState(false);
   const [message, setMessage] = useState();
@@ -16,50 +18,61 @@ function Teste() {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch(`http://localhost:5000/testes/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((resp) => resp.json())
-        .then((data) => {
-          setTeste(data);
+      api
+        .get(`/testes/${id}`)
+        .then((response) => {
+          setTeste(response.data);
         })
-        .catch((err) => console.log(err));
-    }, 2000);
+        .catch((err) => {
+          console.error("ops! ocorreu um erro : " + err);
+        });
+    }, 300);
   }, [id]);
 
   function toogleProjectForm() {
     setShowTesteForm(!showTesteForm);
   }
 
-  function editPost(teste) {
-    fetch(`http://localhost:5000/testes/${teste.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(teste),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setTeste(data);
-        setShowTesteForm(false);
-        setMessage("Projeto Atualizado!");
-        setType("sucess");
-      })
-      .catch((err) => console.log(err));
+  function updateTest(teste) {
+    setTimeout(() => {
+      api
+        .put(`/testes/${id}`, teste)
+        .then((response) => {
+          setTeste(response);
+          setShowTesteForm(false);
+          setMessage("Projeto Atualizado!");
+          setType("sucess");
+        })
+        .catch((err) => {
+          console.error("ops! ocorreu um erro : " + err);
+        });
+    }, 300);
+
+    // fetch(`http://localhost:5000/testes/${teste.id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "Application/json",
+    //   },
+    //   body: JSON.stringify(teste),
+    // })
+    //   .then((resp) => resp.json())
+    //   .then((data) => {
+    //     setTeste(data);
+    //     setShowTesteForm(false);
+    //     setMessage("Projeto Atualizado!");
+    //     setType("sucess");
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   return (
     <>
-      {teste.name ? (
+      {teste.test_title ? (
         <div className={styles.teste_details}>
           <Container customClass="column">
             {message && <Message type={type} msg={message} />}
             <div className={styles.details_container}>
-              <h1>Teste: {teste.name}</h1>
+              <h1>Teste: {teste.test_title}</h1>
               <button className={styles.btn} onClick={toogleProjectForm}>
                 {!showTesteForm ? "Editar Projeto" : "Fechar"}
               </button>
@@ -67,21 +80,21 @@ function Teste() {
                 <div className={styles.teste_info}>
                   <p>
                     <span>Ambiente: </span>
-                    {teste.category.name}
+                    {teste.test_environment}
                   </p>
                   <p>
                     <span>Nome: </span>
-                    {teste.name}
+                    {teste.test_title}
                   </p>
                   <p>
                     <span>Descrição: </span>
-                    {teste.description}
+                    {teste.test_description}
                   </p>
                 </div>
               ) : (
                 <div className={styles.teste_info}>
                   <TestForm
-                    handleSubmit={editPost}
+                    handleSubmit={updateTest}
                     btnText="Concluir edição"
                     testData={teste}
                   />
