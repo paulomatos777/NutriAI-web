@@ -56,7 +56,7 @@ function Testes() {
           <h1>Meus Testes</h1>
         </div>
         <div>
-          <LinkButton to="/newtask" text="Criar Teste" className={styles.btn} />
+          <LinkButton to="/newtask" text="Gerar Receitas" className={styles.btn} />
         </div>
       </div>
       {message && <Message type="sucess" msg={message} />}

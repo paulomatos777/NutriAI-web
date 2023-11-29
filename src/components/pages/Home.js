@@ -1,15 +1,15 @@
 import styles from "./Home.module.css";
-import photo from "../../img/home_image.svg";
+import photo from "../../img/image 59.png";
 import LinkButton from "../layout/LinkButton";
 
 function Home() {
   return (
     <section className={styles.home_container}>
       <h1>
-        Bem-Vindo ao <span>Exmed Testes</span>
+        Bem-Vindo ao <span>Nutri AI</span>
       </h1>
-      <p>Gerenciador de Testes Projetos Exmed</p>
-      <LinkButton to="/newtask" text="Criar Teste" />
+      <p>Seu gerador de Receitas personalizados</p>
+      <LinkButton to="/newtask" text="Gerar Receitas" />
       <img src={photo} alt="photo" className={styles.img} />
     </section>
   );

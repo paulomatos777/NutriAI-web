@@ -19,9 +19,9 @@ function NewTask() {
 
   return (
     <div className={styles.newtask_container}>
-      <h1>Criar Teste</h1>
-      <p>Crie seu Teste para depois adicionar a Lista </p>
-      <TestForm btnText="Criar teste" handleSubmit={handleSubmit} />
+      <h1>Gerar Receita</h1>
+      <p>Receba sugestões de receitas apenas selecionando os alimentos de sua preferencia </p>
+      <TestForm btnText="Criar Receita" handleSubmit={handleSubmit} />
     </div>
   );
 }

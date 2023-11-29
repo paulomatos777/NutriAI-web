@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: #5e17eb;
+  background-color: #f7f3e7;
   padding-bottom: 2rem;
   padding-top: 2rem;
   font-size: 1.5rem;
@@ -17,7 +17,7 @@
   margin-right: 1em;
 }
 .item a {
-  color: #fff;
+  color: #f48722;
   text-decoration: none;
 }
 
@@ -28,12 +28,12 @@
 
 .img {
   width: auto;
-  border-right: 1px solid #2ae0cd;
+  border-right: 1px solid #016241;
   padding-right: 0.5rem;
 }
 
 .test {
-  color: #fff;
+  color: #f48722;
   text-decoration: none;
   padding-left: 0.5rem;
   height: 100%;

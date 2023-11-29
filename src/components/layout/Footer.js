@@ -16,7 +16,7 @@ function Footer() {
         </li>
       </ul>
       <p className={styles.copy_right}>
-        <span>Exmed Testes</span> &copy;2022
+        <span>Nutri AI</span> &copy;2023
       </p>
     </footer>
   );
